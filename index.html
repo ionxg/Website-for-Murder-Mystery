@@ -22,8 +22,9 @@
     .detail{display:grid;gap:20px;grid-template-columns:min(380px,40%) 1fr;align-items:start}
     .detail img{width:100%;border-radius:16px;border:1px solid #1e2742;background:#0f1528;aspect-ratio:1/1;object-fit:cover}
     .detail .back{background:transparent;border:1px solid #2b3555;border-radius:999px;padding:8px 12px;color:var(--fg);cursor:pointer}
-    .description{color:var(--muted);line-height:1.5}
-
+    .description ul{margin:8px 0 0;padding-left:1.2rem}
+    .description li{margin:6px 0}
+    .description{color:var(--muted);line-height:1.5;white-space:pre-line}
     footer{padding:24px 20px;color:var(--muted);text-align:center;border-top:1px solid #20283d;margin-top:32px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
@@ -54,81 +55,110 @@
     <noscript>This site needs JavaScript enabled to switch between list and detail.</noscript>
   </main>
 
-  <footer>© <span id="year"></span> Murder Mystery, Daily of Billionaire(LEC x TWSA)</footer>
+  <footer>© <span id="year"></span> Murder Mystery, The Ung-chonlamark Family Curse(LEC x TWSA)</footer>
 
   <script>
     const characters = [
       {
+        id: "TheUng-chonlamarkFamily",
+        name: "The Ung-chonlamark Family",
+        image: "images/TUCF.jpg",
+        description: `The Ung-chonlamark family is of Thai-Chinese descent. The family patriarch, 黄海强, Ung Hái Kióng (in Teochew) or Huáng Hǎi Qiáng (in Mandarin), immigrated from Shantou to Bangkok, where he settled down. His son, Samut, founded a construction business called Ung Construction, which was later renamed CLM Property. However, Samut's business faced numerous problems and was on the brink of bankruptcy.
+                    While CLM Property was struggling, Samut's two sons, Natee and Tara, were still in school. They stepped in to help manage the business and successfully revitalised it, growing CLM Property into the fifth-largest real estate company in Southeast Asia. Samut later founded an additional business, CLM Yacht Club, which led to the establishment of CLM Group. Earlier this year, Natee opened the Natee & Tara Theatre, the largest theatre in Southeast Asia. It currently features three stage productions: The Lion King, Death Note, and What's Wrong with Secretary Kim?`
+      },
+      {
+        id: "TUCFC",
+        name: "The Ung-chonlamark Family Curse",
+        image: "images/TUCFC.jpg",
+        descHtml: `
+          <p>Over the past three years, three members of the Ung-chonlamark family have died in a continuous chain of events.</p>
+          <ul>
+            <li><strong>Tara</strong>, the youngest son of Samut, died three years ago at the age of 23. He was killed in a car accident. Police believe his car was speeding on a wet, slippery road, causing him to lose control and crash through a bridge barrier, falling into the river.</li>
+            <li><strong>Samut</strong>, the father of Waree, Natee, and Tara, died in his bedroom two years ago at the age of 51 while with his third and most recent wife. The hospital determined the cause of death was a heart attack.</li>
+            <li><strong>Natee</strong>, the eldest son of Samut, was murdered last night. His body was found in his ransacked office. Several valuables were missing, and numerous fingerprints were found at the scene. His body was discovered by Sumin, a housemaid, and Hoang, a friend of Sumin. Based on the investigation, Natee's time of death is estimated to be between 8–10 PM. The murder weapon was a kitchen knife. Signs of a struggle were also found in his office.</li>
+          </ul>
+        `
+      },
+      {
+        id: "SuspectsintheNateeMurderCase",
+        name: "Suspects in the Natee Murder Case",
+        image: "images/SN.jpg",
+        description: `Police have processed the crime scene and interviewed those involved. Unfortunately, a terrorist attack one day prior to the incident caused a city-wide power outage in Bangkok, disabling most CCTV cameras in both public areas and in Natee's home. However, officials have identified nine suspects.`
+      },
+      {
         id: "samut",
         name: "Samut",
         image: "images/samut.jpg",
-        description: "Description."
+        description: ``
       },
       {
         id: "minh",
-        name: "Minh",
+        name: `Minh Thủy "Waree" (วารี) Ung-chonlamark (Age 32)`,
         image: "images/minh.jpg",
-        description: "Description."
+        description: `Natee's half-sister. Born and raised in Vietnam, she later moved to Thailand and cannot speak English. She has a history of alcohol and substance abuse and is in significant debt. However, she has reportedly been undergoing treatment for her addictions. Waree has been married twice. Her first marriage was to an English boyfriend from her school days. After their divorce, he was stabbed to death by a drug dealer in France. Her second marriage was to a Hong Kong businessman, which also ended in divorce.
+Currently, Waree is unemployed and living in Natee's house. Police records show that two years ago, she attempted to stab Natee with a knife during a company meeting. However, Natee chose not to press charges. Additionally, two suspects claim that Waree had several arguments with Natee on the day of the incident, and one of them alleges that Waree threatened to kill Natee.
+At the time of the incident, she was living in a third-floor bedroom in Natee's house. She claims she took a prescription sleeping pill and went to sleep at approximately 6 PM, waking up at 8 AM the next morning. She stated that she heard no sounds during that time, which she claims is normal after taking her medication.
+`
       },
       {
         id: "natee",
         name: "Natee",
         image: "images/natee.jpg",
-        description: "Rich."
+        description: ``
       },
       {
         id: "tarra",
         name: "Tarra",
         image: "images/tarra.jpg",
-        description: "Second son."
+        description: ``
       },
       {
         id: "ray",
         name: "Ray",
         image: "images/ray.jpg",
-        description: "lawyer."
+        description: ``
       },
       {
         id: "jenny",
         name: "Jenny",
         image: "images/jenny.jpg",
-        description: "Description."
+        description: ``
       },
       {
         id: "terra",
         name: "Terra",
         image: "images/terra.jpg",
-        description: "Description."
+        description: ``
       },
       {
         id: "maple",
         name: "Maple",
         image: "images/maple.jpg",
-        description: "Rich."
+        description: ``
       },
       {
         id: "Sumin",
         name: "Sumin",
         image: "images/sumin.jpg",
-        description: "Maid."
+        description: ``
       },
       {
         id: "Bell",
         name: "Bell",
         image: "images/bell.jpg",
-        description: "lawyer."
+        description: ``
       },
       {
         id: "hoang",
         name: "Hoang",
         image: "images/hoang.jpg",
-        description: "thug."
+        description: ``
       },
       {
         id: "Yutong",
         name: "Yutong",
         image: "images/yutong.jpg",
-        description: "lawyer."
+        description: ``
       }
     ];
 
@@ -155,18 +185,26 @@
       `).join('');
     }
 
-    function renderDetail(id){
-      const c = characters.find(ch => ch.id === id);
-      if(!c){ renderList(); return; }
-      listView.style.display = 'none';
-      detailView.style.display = 'block';
-      document.getElementById('detailName').textContent = c.name;
-      document.getElementById('detailDesc').textContent = c.description;
-      const img = document.getElementById('detailImage');
-      img.src = c.image;
-      img.alt = c.name;
-      img.onerror = () => { img.onerror = null; img.src = placeholder; };
+  function renderDetail(id){
+    const c = characters.find(ch => ch.id === id);
+    if(!c){ renderList(); return; }
+    listView.style.display = 'none';
+    detailView.style.display = 'block';
+    document.getElementById('detailName').textContent = c.name;
+
+    const descEl = document.getElementById('detailDesc');
+    if (c.descHtml) {
+      descEl.innerHTML = c.descHtml;     // render HTML version
+    } else {
+      descEl.textContent = c.description || "";  // fallback: plain text
     }
+
+    const img = document.getElementById('detailImage');
+    img.src = c.image;
+    img.alt = c.name;
+    img.onerror = () => { img.onerror = null; img.src = placeholder; };
+  }
+
 
     function goTo(id){ location.hash = id; }
 
